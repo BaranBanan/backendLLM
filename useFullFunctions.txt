@@ -1,0 +1,29 @@
+Unity (Mic + UI)
+        ↓
+Node.js Backend
+        ↓
+OpenAI API
+        ↓
+Node.js Backend
+        ↓
+Unity UI
+
+
+
+-------------------------------------------------- 
+
+export OPENAI_API_KEY="your_api_key_here"
+
+CTRL + C //stopper serveren
+
+node server.js //starter serveren
+
+echo $OPENAI_API_KEY //skjekke nøkkelen
+
+-------------------------------------------------- 
+
+mathias //NPC 
+
+whisper TTS
+
+Return to work etter sykemelding 
