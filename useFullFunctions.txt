@@ -8,6 +8,15 @@ Node.js Backend
         ↓
 Unity UI
 
+--------------------------------------------------
+Requirements
+
+Add a .env file locally in same folder with this line:
+OPENAI_API_KEY=*your api key here*
+
+Used with LLM_test unity project
+
+
 
 
 -------------------------------------------------- 
