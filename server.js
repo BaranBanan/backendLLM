@@ -80,9 +80,23 @@ const replyText =
     ].slice(-12); // keep last 12 messages
     sessions.set(sessionId, newHistory);
 
-    return res.json({
+        // 4) Text-to-speech (TTS) for the interviewer reply
+    const tts = await client.audio.speech.create({
+      model: "gpt-4o-mini-tts",
+      voice: "alloy",           // we can try different voices later
+      format: "mp3",            // mp3 is easiest to play in Unity
+      input: replyText,
+    });
+
+    // tts is binary audio data
+    const audioBuffer = Buffer.from(await tts.arrayBuffer());
+    const replyAudioBase64 = audioBuffer.toString("base64");
+
+    res.json({
       transcript: transcriptText,
       reply_text: replyText,
+      reply_audio_base64: replyAudioBase64,
+      reply_audio_format: "mp3",
     });
   } catch (err) {
     console.error(err);
